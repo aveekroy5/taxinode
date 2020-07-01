@@ -2,14 +2,24 @@ const express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
+// var transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   host: 'smtp.gmail.com',
+//   port: 465,
+//   secure: true,
+//   auth: {
+//     user: 'aveekroy55555@gmail.com',
+//     pass: 'loveis420'
+//   }
+// });
+
+var transporter = nodemailer.createTransport("SMTP", { // Yes. SMTP!
+  host: "email-smtp.us-east-1.amazonaws.com", // Amazon email SMTP hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
   auth: {
-    user: 'aveekroy55555@gmail.com',
-    pass: 'loveis420'
+      user: "AKIAXAWEREUX3QXQ2NPJ", // Use from Amazon Credentials
+      pass: "BOFvOpXguZy0RzHBwxN1OaPnhttbkk2CsswesQWEzuMG" // Use from Amazon Credentials
   }
 });
 
@@ -41,7 +51,7 @@ router.post('/', (req, res) => {
     console.log(req.body)
     var mailOptions = {
         from: 'aveekroy55555@gmail.com',
-        to: req.body.bookingemail,
+        to: 'aveekroy55555@gmail.com',
         subject: 'Taxi Booking Denhug(Quick Booking)',
         html: '<h1>Hi '+ req.body.bookingname +'</h1><br/><br/><p>Thanks for booking we will contact you shortly</p><p>Please check below details, if you have entered anything wrong Book Again</p><p>Mobile No:<a href="tel:'+req.body.bookingphone+'">'+req.body.bookingphone+'</a></p><br/><p>Booking Time: '+req.body.bookingDate +' </p>'
       };
