@@ -13,7 +13,7 @@ var nodemailer = require('nodemailer');
 //   }
 // });
 
-var transporter = nodemailer.createTransport("SMTP", { // Yes. SMTP!
+var transporter = nodemailer.createTransport( { // Yes. SMTP!
   host: "email-smtp.us-east-1.amazonaws.com", // Amazon email SMTP hostname
   secureConnection: true, // use SSL
   port: 465, // port for secure SMTP
@@ -60,7 +60,7 @@ router.post('/', (req, res) => {
         if (error) {
           console.log(error);
         } else {
-          //console.log('Email sent: ' + info.response);
+          console.log('Email sent: ' + info.response);
           res.send(info); 
         }
       });
