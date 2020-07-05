@@ -13,13 +13,14 @@ var nodemailer = require('nodemailer');
 //   }
 // });
 
+
 var transporter = nodemailer.createTransport( { // Yes. SMTP!
   host: "email-smtp.us-east-1.amazonaws.com", // Amazon email SMTP hostname
   secureConnection: true, // use SSL
   port: 465, // port for secure SMTP
   auth: {
-      user: "AKIAXAWEREUX3QXQ2NPJ", // Use from Amazon Credentials
-      pass: "BOFvOpXguZy0RzHBwxN1OaPnhttbkk2CsswesQWEzuMG" // Use from Amazon Credentials
+      user: "AKIAXAWEREUXWLN7G7UB", // Use from Amazon Credentials
+      pass: "BBshBhFEGcs02uNMsl24WNGQvQ7/eCNh28TB7KFj1mId" // Use from Amazon Credentials
   }
 });
 
@@ -51,7 +52,7 @@ router.post('/', (req, res) => {
     console.log(req.body)
     var mailOptions = {
         from: 'aveekroy55555@gmail.com',
-        to: 'aveekroy55555@gmail.com',
+        to: req.body.bookingemail,
         subject: 'Taxi Booking Denhug(Quick Booking)',
         html: '<h1>Hi '+ req.body.bookingname +'</h1><br/><br/><p>Thanks for booking we will contact you shortly</p><p>Please check below details, if you have entered anything wrong Book Again</p><p>Mobile No:<a href="tel:'+req.body.bookingphone+'">'+req.body.bookingphone+'</a></p><br/><p>Booking Time: '+req.body.bookingDate +' </p>'
       };
