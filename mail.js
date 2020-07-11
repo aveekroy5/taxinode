@@ -27,10 +27,10 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport( { // Yes. SMTP!
     host: "email-smtp.us-east-1.amazonaws.com", // Amazon email SMTP hostname
     secureConnection: true, // use SSL
-    port: 25, // port for secure SMTP
+    port: 465, // port for secure SMTP
     auth: {
-        user: "AKIAXUZWDFB4MVC5CJ6G", // Use from Amazon Credentials
-        pass: "BD87Tu36UG4XoYCa9AdS6WF4oplj2vbifXzLix9tmFjP" // Use from Amazon Credentials
+        user: "AKIAXUZWDFB4A46QBUVM", // Use from Amazon Credentials
+        pass: "BPwoemh+ShM6IyPPJy4+2jPrnByd6SzjYnQlqhuJVoXz" // Use from Amazon Credentials
     }
   });
 
